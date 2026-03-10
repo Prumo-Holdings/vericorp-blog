@@ -1,59 +1,40 @@
-/* VeriCorp Design System — Blog Theme Override */
+/* VeriCorp Design System — PaperMod Override */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-:root {
-  --vc-navy: #0C1E3A;
-  --vc-deep: #142D55;
-  --vc-royal: #1E4D8C;
-  --vc-accent: #3B82F6;
-  --vc-electric: #60A5FA;
-  --vc-sky: #93C5FD;
-  --vc-teal: #06B6D4;
-  --vc-verified: #10B981;
-  --vc-gold: #F59E0B;
-  --vc-muted: #94A3B8;
-  --vc-border: #1E3A5F;
-  --vc-surface: #0F2847;
-}
-
-/* Dark theme — PaperMod uses [data-theme=dark] on <html> */
-[data-theme=dark] {
+/* Override PaperMod dark variables — same selector as theme-vars.css */
+:root[data-theme="dark"] {
   --theme: #0C1E3A;
   --entry: #142D55;
   --primary: #E2E8F0;
   --secondary: #94A3B8;
   --tertiary: #1E3A5F;
   --content: #CBD5E1;
-  --hljs-bg: #0B1929;
-  --code-bg: #0B1929;
+  --code-block-bg: #0B1929;
+  --code-bg: #0F2847;
   --border: #1E3A5F;
-  --gap: 24px;
+  color-scheme: dark;
 }
 
 /* Light theme */
-[data-theme=light] {
+:root {
   --theme: #F8FAFC;
   --entry: #FFFFFF;
   --primary: #0C1E3A;
   --secondary: #475569;
   --tertiary: #E2E8F0;
   --content: #334155;
-  --hljs-bg: #F1F5F9;
+  --code-block-bg: #0C1E3A;
   --code-bg: #F1F5F9;
   --border: #E2E8F0;
 }
 
-/* Typography */
+/* Fonts */
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 400;
 }
 
-h1, h2, h3, h4, h5, h6,
-.post-title,
-.profile .profile_inner h1,
-.first-entry .entry-header h1 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
 }
@@ -63,163 +44,56 @@ code, pre, .highlight code, .post-content code {
   font-size: 0.875em;
 }
 
-/* Links — accent blue */
+/* Links */
 a {
-  color: var(--vc-accent);
+  color: #3B82F6;
 }
 
-a:hover {
-  color: var(--vc-electric);
+[data-theme="dark"] a {
+  color: #60A5FA;
 }
 
-[data-theme=dark] a {
-  color: var(--vc-electric);
+[data-theme="dark"] a:hover {
+  color: #93C5FD;
 }
 
-[data-theme=dark] a:hover {
-  color: var(--vc-sky);
-}
-
-/* Header / Nav */
-.nav {
-  gap: 20px;
-}
-
-.logo a {
-  font-weight: 700;
-  font-size: 1.3rem;
-  gap: 8px;
-}
-
+/* Logo */
 .logo img {
   border-radius: 4px;
-  display: inline-block;
 }
 
-/* Post cards */
-[data-theme=dark] .post-entry {
-  background: var(--vc-deep);
-  border: 1px solid var(--vc-border);
-  border-radius: 8px;
-}
-
-[data-theme=dark] .post-entry:hover {
-  border-color: var(--vc-accent);
-  transform: translateY(-2px);
-  transition: all 0.2s ease;
-}
-
+/* Post cards hover */
 .post-entry {
   border-radius: 8px;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Tags */
-[data-theme=dark] .post-tags a {
-  background: var(--vc-surface);
-  color: var(--vc-electric);
-  border: 1px solid var(--vc-border);
-  border-radius: 4px;
-  padding: 2px 10px;
+[data-theme="dark"] .post-entry:hover {
+  border-color: #3B82F6;
+  transform: translateY(-2px);
 }
 
-[data-theme=dark] .post-tags a:hover {
-  background: var(--vc-royal);
-  border-color: var(--vc-accent);
-}
-
-/* Breadcrumbs */
-[data-theme=dark] .breadcrumbs a {
-  color: var(--vc-muted);
-}
-
-[data-theme=dark] .breadcrumbs a:hover {
-  color: var(--vc-electric);
-}
-
-/* Code blocks */
-[data-theme=dark] .highlight pre {
-  background: #0B1929 !important;
-  border: 1px solid var(--vc-border);
-  border-radius: 8px;
-}
-
-[data-theme=dark] .post-content code {
-  background: var(--vc-surface);
-  border-radius: 4px;
-  padding: 2px 6px;
-}
-
-/* Copy button */
-[data-theme=dark] .copy-code {
-  background: var(--vc-surface);
-  border: 1px solid var(--vc-border);
-  color: var(--vc-muted);
-}
-
-/* Scroll bar */
-[data-theme=dark] ::-webkit-scrollbar-thumb {
-  background: var(--vc-royal);
-}
-
-[data-theme=dark] ::-webkit-scrollbar-track {
-  background: var(--vc-navy);
-}
-
-/* Footer */
-[data-theme=dark] .footer {
-  color: var(--vc-muted);
-}
-
-/* Home info */
-[data-theme=dark] .first-entry {
-  background: var(--vc-deep);
-  border: 1px solid var(--vc-border);
+/* Home info card */
+[data-theme="dark"] .first-entry {
+  border: 1px solid #1E3A5F;
   border-radius: 12px;
 }
 
-/* Reading time / post meta */
-[data-theme=dark] .post-meta {
-  color: var(--vc-muted);
-}
-
-/* Theme toggle */
-[data-theme=dark] #moon,
-[data-theme=dark] #sun {
-  color: var(--vc-muted);
-}
-
-/* Pagination */
-[data-theme=dark] .pagination a {
-  background: var(--vc-deep);
-  border: 1px solid var(--vc-border);
-  border-radius: 6px;
-  color: var(--vc-electric);
-}
-
-[data-theme=dark] .pagination a:hover {
-  background: var(--vc-royal);
-  border-color: var(--vc-accent);
-}
-
-/* Social icons */
-[data-theme=dark] .social-icons a {
-  color: var(--vc-muted);
-}
-
-[data-theme=dark] .social-icons a:hover {
-  color: var(--vc-electric);
-}
-
-/* Search */
-[data-theme=dark] #searchbox input {
-  background: var(--vc-deep);
-  border: 1px solid var(--vc-border);
+/* Code blocks */
+[data-theme="dark"] .highlight pre {
+  border: 1px solid #1E3A5F;
   border-radius: 8px;
-  color: #E2E8F0;
 }
 
-[data-theme=dark] #searchbox input:focus {
-  border-color: var(--vc-accent);
-  outline: none;
+/* Tags */
+[data-theme="dark"] .post-tags a {
+  background: #0F2847;
+  color: #60A5FA;
+  border: 1px solid #1E3A5F;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .post-tags a:hover {
+  background: #1E4D8C;
+  border-color: #3B82F6;
 }

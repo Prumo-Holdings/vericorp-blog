@@ -1,7 +1,8 @@
-baseURL = "https://blog.vericorp.dev/"
+baseURL = "https://vericorp-blog.pages.dev/"
 languageCode = "en"
 title = "VeriCorp Blog"
 theme = "PaperMod"
+relativeURLs = true
 
 [params]
   env = "production"
