@@ -17,25 +17,25 @@
   --vc-surface: #0F2847;
 }
 
-/* Dark theme (default) */
-.dark {
-  --theme: var(--vc-navy);
-  --entry: var(--vc-deep);
+/* Dark theme — PaperMod uses [data-theme=dark] on <html> */
+[data-theme=dark] {
+  --theme: #0C1E3A;
+  --entry: #142D55;
   --primary: #E2E8F0;
-  --secondary: var(--vc-muted);
-  --tertiary: var(--vc-border);
+  --secondary: #94A3B8;
+  --tertiary: #1E3A5F;
   --content: #CBD5E1;
   --hljs-bg: #0B1929;
   --code-bg: #0B1929;
-  --border: var(--vc-border);
+  --border: #1E3A5F;
   --gap: 24px;
 }
 
 /* Light theme */
-:root {
+[data-theme=light] {
   --theme: #F8FAFC;
   --entry: #FFFFFF;
-  --primary: var(--vc-navy);
+  --primary: #0C1E3A;
   --secondary: #475569;
   --tertiary: #E2E8F0;
   --content: #334155;
@@ -53,7 +53,7 @@ body {
 h1, h2, h3, h4, h5, h6,
 .post-title,
 .profile .profile_inner h1,
-.first-entry .entry-title {
+.first-entry .entry-header h1 {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
 }
@@ -72,11 +72,11 @@ a:hover {
   color: var(--vc-electric);
 }
 
-.dark a {
+[data-theme=dark] a {
   color: var(--vc-electric);
 }
 
-.dark a:hover {
+[data-theme=dark] a:hover {
   color: var(--vc-sky);
 }
 
@@ -88,20 +88,22 @@ a:hover {
 .logo a {
   font-weight: 700;
   font-size: 1.3rem;
+  gap: 8px;
 }
 
 .logo img {
   border-radius: 4px;
+  display: inline-block;
 }
 
 /* Post cards */
-.dark .post-entry {
+[data-theme=dark] .post-entry {
   background: var(--vc-deep);
   border: 1px solid var(--vc-border);
   border-radius: 8px;
 }
 
-.dark .post-entry:hover {
+[data-theme=dark] .post-entry:hover {
   border-color: var(--vc-accent);
   transform: translateY(-2px);
   transition: all 0.2s ease;
@@ -113,7 +115,7 @@ a:hover {
 }
 
 /* Tags */
-.dark .post-tags a {
+[data-theme=dark] .post-tags a {
   background: var(--vc-surface);
   color: var(--vc-electric);
   border: 1px solid var(--vc-border);
@@ -121,102 +123,103 @@ a:hover {
   padding: 2px 10px;
 }
 
-.dark .post-tags a:hover {
+[data-theme=dark] .post-tags a:hover {
   background: var(--vc-royal);
   border-color: var(--vc-accent);
 }
 
 /* Breadcrumbs */
-.dark .breadcrumbs a {
+[data-theme=dark] .breadcrumbs a {
   color: var(--vc-muted);
 }
 
-.dark .breadcrumbs a:hover {
+[data-theme=dark] .breadcrumbs a:hover {
   color: var(--vc-electric);
 }
 
 /* Code blocks */
-.dark .highlight pre {
+[data-theme=dark] .highlight pre {
   background: #0B1929 !important;
   border: 1px solid var(--vc-border);
   border-radius: 8px;
 }
 
-.dark .post-content code {
+[data-theme=dark] .post-content code {
   background: var(--vc-surface);
   border-radius: 4px;
   padding: 2px 6px;
 }
 
 /* Copy button */
-.dark .copy-code {
+[data-theme=dark] .copy-code {
   background: var(--vc-surface);
   border: 1px solid var(--vc-border);
   color: var(--vc-muted);
 }
 
 /* Scroll bar */
-.dark ::-webkit-scrollbar-thumb {
+[data-theme=dark] ::-webkit-scrollbar-thumb {
   background: var(--vc-royal);
 }
 
-.dark ::-webkit-scrollbar-track {
+[data-theme=dark] ::-webkit-scrollbar-track {
   background: var(--vc-navy);
 }
 
 /* Footer */
-.dark .footer {
+[data-theme=dark] .footer {
   color: var(--vc-muted);
 }
 
 /* Home info */
-.dark .first-entry {
+[data-theme=dark] .first-entry {
   background: var(--vc-deep);
   border: 1px solid var(--vc-border);
   border-radius: 12px;
 }
 
 /* Reading time / post meta */
-.dark .post-meta {
+[data-theme=dark] .post-meta {
   color: var(--vc-muted);
 }
 
 /* Theme toggle */
-.dark #moon, .dark #sun {
+[data-theme=dark] #moon,
+[data-theme=dark] #sun {
   color: var(--vc-muted);
 }
 
-/* Button style for pagination */
-.dark .pagination a {
+/* Pagination */
+[data-theme=dark] .pagination a {
   background: var(--vc-deep);
   border: 1px solid var(--vc-border);
   border-radius: 6px;
   color: var(--vc-electric);
 }
 
-.dark .pagination a:hover {
+[data-theme=dark] .pagination a:hover {
   background: var(--vc-royal);
   border-color: var(--vc-accent);
 }
 
 /* Social icons */
-.dark .social-icons a {
+[data-theme=dark] .social-icons a {
   color: var(--vc-muted);
 }
 
-.dark .social-icons a:hover {
+[data-theme=dark] .social-icons a:hover {
   color: var(--vc-electric);
 }
 
 /* Search */
-.dark #searchbox input {
+[data-theme=dark] #searchbox input {
   background: var(--vc-deep);
   border: 1px solid var(--vc-border);
   border-radius: 8px;
   color: #E2E8F0;
 }
 
-.dark #searchbox input:focus {
+[data-theme=dark] #searchbox input:focus {
   border-color: var(--vc-accent);
   outline: none;
 }
