@@ -1,1 +1,126 @@
-<!-- Newsletter signup — fill in after Listmonk setup (checklist step 6) -->
+<!-- Newsletter signup — Listmonk via VPS nginx proxy -->
+<div class="newsletter-box">
+  <h3>Stay in the loop</h3>
+  <p>Get notified about new posts on company verification, EU compliance, and API design.</p>
+  <form id="newsletter-form" class="newsletter-form">
+    <input type="email" id="nl-email" placeholder="your@email.com" required autocomplete="email" />
+    <button type="submit">Subscribe</button>
+  </form>
+  <p id="nl-msg" class="nl-msg" style="display:none"></p>
+  <p class="nl-fine">No spam. Unsubscribe anytime.</p>
+</div>
+
+<style>
+.newsletter-box {
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+}
+[data-theme="dark"] .newsletter-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.newsletter-box h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+.newsletter-box > p {
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+}
+[data-theme="dark"] .newsletter-box > p { color: #94A3B8; }
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.newsletter-form input {
+  flex: 1;
+  padding: 0.625rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+[data-theme="dark"] .newsletter-form input {
+  background: rgba(255,255,255,0.03);
+  color: #E2E8F0;
+}
+[data-theme="dark"] .newsletter-form input:focus {
+  border-color: rgba(59,130,246,0.4);
+  outline: none;
+}
+.newsletter-form button {
+  padding: 0.625rem 1.5rem;
+  background: #3B82F6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.newsletter-form button:hover {
+  background: #60A5FA;
+  transform: translateY(-1px);
+}
+.newsletter-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+.nl-msg {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+.nl-msg.success { color: #10B981; }
+.nl-msg.error { color: #EF4444; }
+.nl-fine {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+}
+[data-theme="dark"] .nl-fine { color: #64748B; }
+</style>
+
+<script>
+document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button');
+  const msg = document.getElementById('nl-msg');
+  const email = document.getElementById('nl-email').value.trim();
+  if (!email) return;
+
+  btn.disabled = true;
+  btn.textContent = 'Subscribing...';
+  msg.style.display = 'none';
+
+  try {
+    const res = await fetch('https://89-167-91-178.sslip.io/newsletter/api/public/subscription', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        list_uuids: ['287967ef-f4b5-481e-8f67-7f7fbf58993d']
+      })
+    });
+    if (res.ok) {
+      msg.textContent = 'Check your inbox to confirm your subscription.';
+      msg.className = 'nl-msg success';
+      document.getElementById('nl-email').value = '';
+    } else {
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.className = 'nl-msg error';
+    }
+  } catch {
+    msg.textContent = 'Could not connect. Please try again later.';
+    msg.className = 'nl-msg error';
+  }
+  msg.style.display = 'block';
+  btn.disabled = false;
+  btn.textContent = 'Subscribe';
+});
+</script>
