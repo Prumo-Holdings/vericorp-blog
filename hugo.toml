@@ -19,7 +19,7 @@ relativeURLs = true
   [params.label]
     text = "VeriCorp"
     icon = "/logo.png"
-    iconHeight = 32
+    iconHeight = 40
 
   [params.assets]
     favicon = "/favicon.png"

@@ -1,18 +1,19 @@
 /* VeriCorp Design System — PaperMod Override */
+/* Matches: vericorp.pages.dev (navy:#0C1E3A, accent:#3B82F6, Plus Jakarta Sans) */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* Override PaperMod dark variables — same selector as theme-vars.css */
+/* Override PaperMod dark variables — exact selector from theme-vars.css */
 :root[data-theme="dark"] {
   --theme: #0C1E3A;
-  --entry: #142D55;
+  --entry: #0F2847;
   --primary: #E2E8F0;
   --secondary: #94A3B8;
   --tertiary: #1E3A5F;
   --content: #CBD5E1;
   --code-block-bg: #0B1929;
-  --code-bg: #0F2847;
-  --border: #1E3A5F;
+  --code-bg: #0C1E3A;
+  --border: rgba(255, 255, 255, 0.06);
   color-scheme: dark;
 }
 
@@ -29,14 +30,17 @@
   --border: #E2E8F0;
 }
 
-/* Fonts */
+/* ── Typography ── */
+
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
 code, pre, .highlight code, .post-content code {
@@ -44,9 +48,15 @@ code, pre, .highlight code, .post-content code {
   font-size: 0.875em;
 }
 
-/* Links */
+/* ── Links — match vericorp.pages.dev ── */
+
 a {
   color: #3B82F6;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #60A5FA;
 }
 
 [data-theme="dark"] a {
@@ -57,43 +67,165 @@ a {
   color: #93C5FD;
 }
 
-/* Logo */
+/* ── Header / Nav ── */
+
+.nav {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+[data-theme="dark"] .nav {
+  background: rgba(12, 30, 58, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.logo a {
+  font-weight: 800;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[data-theme="dark"] .logo a {
+  color: #fff;
+}
+
 .logo img {
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
-/* Post cards hover */
-.post-entry {
-  border-radius: 8px;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
+/* ── Home info section ── */
 
-[data-theme="dark"] .post-entry:hover {
-  border-color: #3B82F6;
-  transform: translateY(-2px);
-}
-
-/* Home info card */
 [data-theme="dark"] .first-entry {
-  border: 1px solid #1E3A5F;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
 }
 
-/* Code blocks */
-[data-theme="dark"] .highlight pre {
-  border: 1px solid #1E3A5F;
-  border-radius: 8px;
+.first-entry .entry-header h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-/* Tags */
-[data-theme="dark"] .post-tags a {
-  background: #0F2847;
+[data-theme="dark"] .first-entry .entry-header h1 {
+  color: #fff;
+}
+
+/* Social icons in home */
+[data-theme="dark"] .social-icons a {
+  color: #94A3B8;
+}
+
+[data-theme="dark"] .social-icons a:hover {
   color: #60A5FA;
-  border: 1px solid #1E3A5F;
+}
+
+/* ── Post cards ── */
+
+.post-entry {
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .post-entry {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .post-entry:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .entry-header h2 {
+  color: #fff;
+}
+
+[data-theme="dark"] .post-meta {
+  color: #94A3B8;
+}
+
+/* ── Code blocks ── */
+
+[data-theme="dark"] .highlight pre {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+
+[data-theme="dark"] .post-content code {
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 4px;
+  padding: 2px 6px;
+}
+
+/* ── Tags ── */
+
+[data-theme="dark"] .post-tags a {
+  background: rgba(59, 130, 246, 0.1);
+  color: #60A5FA;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 100px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 [data-theme="dark"] .post-tags a:hover {
-  background: #1E4D8C;
-  border-color: #3B82F6;
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* ── Footer ── */
+
+[data-theme="dark"] .footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #94A3B8;
+}
+
+/* ── Breadcrumbs ── */
+
+[data-theme="dark"] .breadcrumbs a {
+  color: #94A3B8;
+}
+
+[data-theme="dark"] .breadcrumbs a:hover {
+  color: #60A5FA;
+}
+
+/* ── Pagination ── */
+
+[data-theme="dark"] .pagination a {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  color: #60A5FA;
+}
+
+[data-theme="dark"] .pagination a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* ── Top link button ── */
+
+[data-theme="dark"] .top-link {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Search ── */
+
+[data-theme="dark"] #searchbox input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  color: #E2E8F0;
+}
+
+[data-theme="dark"] #searchbox input:focus {
+  border-color: rgba(59, 130, 246, 0.4);
+  outline: none;
 }
