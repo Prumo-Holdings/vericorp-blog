@@ -1,0 +1,40 @@
+baseURL = "https://blog.vericorp.dev/"
+languageCode = "en"
+title = "VeriCorp Blog"
+theme = "PaperMod"
+
+[module]
+  [[module.imports]]
+    path = "github.com/adityatelange/hugo-PaperMod"
+
+[params]
+  env = "production"
+  description = "VeriCorp — Developer Blog"
+  defaultTheme = "dark"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
+  disableSpecial1stPost = true
+
+  [params.homeInfoParams]
+    Title = "VeriCorp"
+    Content = "Developer blog and technical insights."
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/Prumo-Holdings"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    style = "dracula"
+    lineNos = false
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
