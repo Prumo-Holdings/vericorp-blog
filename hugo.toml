@@ -31,9 +31,6 @@ relativeURLs = true
     Title = "VeriCorp"
     Content = "Developer blog and technical insights."
 
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/Prumo-Holdings"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
