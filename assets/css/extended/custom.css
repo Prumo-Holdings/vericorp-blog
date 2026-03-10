@@ -1,0 +1,222 @@
+/* VeriCorp Design System — Blog Theme Override */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --vc-navy: #0C1E3A;
+  --vc-deep: #142D55;
+  --vc-royal: #1E4D8C;
+  --vc-accent: #3B82F6;
+  --vc-electric: #60A5FA;
+  --vc-sky: #93C5FD;
+  --vc-teal: #06B6D4;
+  --vc-verified: #10B981;
+  --vc-gold: #F59E0B;
+  --vc-muted: #94A3B8;
+  --vc-border: #1E3A5F;
+  --vc-surface: #0F2847;
+}
+
+/* Dark theme (default) */
+.dark {
+  --theme: var(--vc-navy);
+  --entry: var(--vc-deep);
+  --primary: #E2E8F0;
+  --secondary: var(--vc-muted);
+  --tertiary: var(--vc-border);
+  --content: #CBD5E1;
+  --hljs-bg: #0B1929;
+  --code-bg: #0B1929;
+  --border: var(--vc-border);
+  --gap: 24px;
+}
+
+/* Light theme */
+:root {
+  --theme: #F8FAFC;
+  --entry: #FFFFFF;
+  --primary: var(--vc-navy);
+  --secondary: #475569;
+  --tertiary: #E2E8F0;
+  --content: #334155;
+  --hljs-bg: #F1F5F9;
+  --code-bg: #F1F5F9;
+  --border: #E2E8F0;
+}
+
+/* Typography */
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.profile .profile_inner h1,
+.first-entry .entry-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+}
+
+code, pre, .highlight code, .post-content code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875em;
+}
+
+/* Links — accent blue */
+a {
+  color: var(--vc-accent);
+}
+
+a:hover {
+  color: var(--vc-electric);
+}
+
+.dark a {
+  color: var(--vc-electric);
+}
+
+.dark a:hover {
+  color: var(--vc-sky);
+}
+
+/* Header / Nav */
+.nav {
+  gap: 20px;
+}
+
+.logo a {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.logo img {
+  border-radius: 4px;
+}
+
+/* Post cards */
+.dark .post-entry {
+  background: var(--vc-deep);
+  border: 1px solid var(--vc-border);
+  border-radius: 8px;
+}
+
+.dark .post-entry:hover {
+  border-color: var(--vc-accent);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+.post-entry {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* Tags */
+.dark .post-tags a {
+  background: var(--vc-surface);
+  color: var(--vc-electric);
+  border: 1px solid var(--vc-border);
+  border-radius: 4px;
+  padding: 2px 10px;
+}
+
+.dark .post-tags a:hover {
+  background: var(--vc-royal);
+  border-color: var(--vc-accent);
+}
+
+/* Breadcrumbs */
+.dark .breadcrumbs a {
+  color: var(--vc-muted);
+}
+
+.dark .breadcrumbs a:hover {
+  color: var(--vc-electric);
+}
+
+/* Code blocks */
+.dark .highlight pre {
+  background: #0B1929 !important;
+  border: 1px solid var(--vc-border);
+  border-radius: 8px;
+}
+
+.dark .post-content code {
+  background: var(--vc-surface);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+/* Copy button */
+.dark .copy-code {
+  background: var(--vc-surface);
+  border: 1px solid var(--vc-border);
+  color: var(--vc-muted);
+}
+
+/* Scroll bar */
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--vc-royal);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--vc-navy);
+}
+
+/* Footer */
+.dark .footer {
+  color: var(--vc-muted);
+}
+
+/* Home info */
+.dark .first-entry {
+  background: var(--vc-deep);
+  border: 1px solid var(--vc-border);
+  border-radius: 12px;
+}
+
+/* Reading time / post meta */
+.dark .post-meta {
+  color: var(--vc-muted);
+}
+
+/* Theme toggle */
+.dark #moon, .dark #sun {
+  color: var(--vc-muted);
+}
+
+/* Button style for pagination */
+.dark .pagination a {
+  background: var(--vc-deep);
+  border: 1px solid var(--vc-border);
+  border-radius: 6px;
+  color: var(--vc-electric);
+}
+
+.dark .pagination a:hover {
+  background: var(--vc-royal);
+  border-color: var(--vc-accent);
+}
+
+/* Social icons */
+.dark .social-icons a {
+  color: var(--vc-muted);
+}
+
+.dark .social-icons a:hover {
+  color: var(--vc-electric);
+}
+
+/* Search */
+.dark #searchbox input {
+  background: var(--vc-deep);
+  border: 1px solid var(--vc-border);
+  border-radius: 8px;
+  color: #E2E8F0;
+}
+
+.dark #searchbox input:focus {
+  border-color: var(--vc-accent);
+  outline: none;
+}

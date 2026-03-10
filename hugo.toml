@@ -15,6 +15,17 @@ theme = "PaperMod"
   ShowRssButtonInSectionTermList = true
   disableSpecial1stPost = true
 
+  [params.label]
+    text = "VeriCorp"
+    icon = "/logo.png"
+    iconHeight = 32
+
+  [params.assets]
+    favicon = "/favicon.png"
+    favicon16x16 = "/favicon.png"
+    favicon32x32 = "/favicon.png"
+    apple_touch_icon = "/apple-touch-icon.png"
+
   [params.homeInfoParams]
     Title = "VeriCorp"
     Content = "Developer blog and technical insights."
